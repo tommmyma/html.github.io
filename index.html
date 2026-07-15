@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>鼎鑫實金銷售行情 · 投資金銀條報價</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+  }
+  body {
+    background-color: #0f172a;
+    color: #f1f5f9;
+    padding: 12px;
+    line-height: 1.6;
+  }
+  .container {
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+  /* 頂部雙欄標題區 */
+  .top-header-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 16px 14px;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.35);
+  }
+  .header-left h1 {
+    font-size: clamp(1.8rem,5vw,9rem);
+    color: #d4af37;
+    letter-spacing: 1px;
+  }
+  .header-right {
+    text-align: right;
+    font-size: clamp(0.9rem,2.2vw,1.6rem);
+  }
+  .timestamp {
+    margin-top: 8px;
+    font-size: clamp(0.8rem,2vw,1.4rem);
+    opacity: .9;
+    color: #cbd5e0;
+  }
+  /* 主內容左右分欄：手機改上下堆疊，電腦維持左右 */
+  .main-wrap {
+    display: grid;
+    grid-template-columns: 65% 33%;
+    gap: 2%;
+  }
+  @media (max-width: 768px) {
+    .main-wrap {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+  /* 銷售報價表格容器 */
+  .price-table-container {
+    background-color: #1e293b;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,.3);
+    margin-bottom: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: clamp(120%,3vw,350%);
+  }
+  thead {
+    background-color: #334155;
+    color: #fff;
+  }
+  th {
+    padding: clamp(12px,3vw,30px) 10px;
+    text-align: center;
+    font-weight: 700;
+  }
+  td {
+    padding: clamp(12px,3vw,30px) 8px;
+    text-align: center;
+    border-bottom: 1px solid #475569;
+  }
+  /* 黃金產品文字顏色 */
+  .gold-item {
+    color: #d4af37;
+    font-weight: 600;
+  }
+  /* 白銀產品文字顏色 */
+  .silver-item {
+    color: #c0c0c0;
+    font-weight: 600;
+  }
+  /* 白銀前粗分隔線 */
+  .silver-divider td {
+    border-top: 6px solid #64748b !important;
+  }
+  /* 價格漲跌顏色+箭頭 */
+  .price-up {
+    color: #22c55e;
+  }
+  .price-down {
+    color: #ef4444;
+  }
+  /* 備註列 */
+  .note-row td {
+    text-align: center;
+    padding: clamp(10px,2.5vw,24px);
+    font-size: clamp(1rem,2.5vw,2rem);
+    color: #fbbf24;
+    font-weight: 600;
+  }
+  /* 單位樣式 */
+  .unit { color: #94a3b8 !important; margin-left: 6px; }
+  /* 右側二維碼專用表格 */
+  .qr-table-container {
+    background-color: #1e293b;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,.3);
+    height: 100%;
+  }
+  .qr-table {
+    font-size: clamp(110%,2.8vw,300%);
+    height: 100%;
+  }
+  .qr-img-box img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .qr-desc {
+    background: #2563eb;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 16px 10px;
+  }
+  .tel-text {
+    color: #22c55e;
+    font-weight: 700;
+    font-size: clamp(0.85rem,2vw,100%);
+    display: block;
+    margin: 10px 0;
+  }
+  /* 移除手機隱藏全域樣式 */
+  @media (max-width: 768px) {
+    body { display: block; }
+  }
+  @media (max-aspect-ratio: 16/9) {
+    .top-header-bar { padding: 16px; }
+    .header-left h1 { font-size: clamp(1.8rem,4vw,6rem); }
+    table { font-size: clamp(120%,2.6vw,280%); }
+    .qr-table { font-size: clamp(110%,2.4vw,240%); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- 頂部雙欄區 -->
+  <div class="top-header-bar">
+    <div class="header-left">
+      <h1>鼎鑫實金銷售行情</h1>
+    </div>
+    <div class="header-right">
+      <div class="timestamp">實時更新時間: <span id="ut">初始化中...</span></div>
+    </div>
+  </div>
+
+  <!-- 主內容左右分欄 -->
+  <div class="main-wrap">
+    <!-- 左側原有金銀銷售表格 -->
+    <div class="price-table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>產品(純度999.9)</th>
+            <th>銷售價格(HKD$)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="gold-item">(10克)投資黃金</td>
+            <td id="sell-au-10g">--</td>
+          </tr>
+          <tr>
+            <td class="gold-item">(20克)投資黃金</td>
+            <td id="sell-au-20g">--</td>
+          </tr>
+          <tr>
+            <td class="gold-item">(50克)投資黃金</td>
+            <td id="sell-au-50g">--</td>
+          </tr>
+          <tr>
+            <td class="gold-item">(一両)投資黃金</td>
+            <td id="sell-au-tael">--</td>
+          </tr>
+          <tr>
+            <td class="gold-item">(1公斤)投資黃金條</td>
+            <td id="sell-au-1kg">--</td>
+          </tr>
+          <!-- 粗分隔線 -->
+          <tr class="silver-divider">
+            <td class="silver-item">(500克)投資白銀條</td>
+            <td id="sell-ag-500g">--</td>
+          </tr>
+          <tr>
+            <td class="silver-item">(1公斤)投資白銀條</td>
+            <td id="sell-ag-1kg">--</td>
+          </tr>
+          <!-- 備註行 -->
+          <tr class="note-row">
+            <td colspan="2">***50%訂金可鎖定實時價格***</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 右側新增二維碼表格 -->
+    <div class="qr-table-container">
+      <table class="qr-table">
+        <tbody>
+          <tr>
+            <td class="qr-img-box">
+              <a href="https://ibb.co/MDdnBrLb">
+                <img src="https://i.ibb.co/MDdnBrLb/qrcode-www-dsgolds-com.png" alt="qrcode-www-dsgolds-com" border="0" />
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td class="qr-desc">實時金價，掃碼即看</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="tel-text"><i class="fab fa-whatsapp"></i>上環查詢電話: 5396 2703</div>
+              <div class="tel-text"><i class="fab fa-whatsapp"></i>分店查詢電話: 5428 7123</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+    var d = document, ut = d.getElementById('ut');
+    var fmt = function(n){ return n<10?'0'+n:n; };
+    // 每秒更新時間戳
+    setInterval(function(){ 
+        var t = new Date(); 
+        ut.textContent = t.getFullYear() + '年' + fmt(t.getMonth()+1) + '月' + fmt(t.getDate()) + '日 ' + fmt(t.getHours()) + ':' + fmt(t.getMinutes()) + ':' + fmt(t.getSeconds()); 
+    }, 1000);
+    
+    // 金屬對照
+    var M = {
+        au:{ c:'AUX', h:'sh-au', r:'sr-au' },
+        ag:{ c:'AGX', h:'sh-ag', r:'sr-ag' },
+        pt:{ c:'PTX', h:'sh-pt', r:'sr-pt' }
+    };
+    var ws, tm;
+    var rand = function(l){ 
+        var c = 'abcdefghijklmnopqrstuvwxyz0123456789', r = ''; 
+        for(var i=0; i<l; i++) r += c.charAt(Math.floor(Math.random()*c.length)); 
+        return r; 
+    };
+    
+    // 儲存上一次每克價格，用於計算漲跌
+    var lastGramPrice = {
+        au: null,
+        ag: null
+    };
+    // 儲存每個產品欄位上一次總價，用於顯示漲跌顏色箭頭
+    var lastSellTotal = {
+        'sell-au-10g':null,
+        'sell-au-20g':null,
+        'sell-au-500g':null,
+        'sell-au-tael':null,
+        'sell-au-1kg':null,
+        'sell-ag-500g':null,
+        'sell-ag-1kg':null
+    };
+
+    function conn(){
+        var svr = Math.floor(Math.random()*1000).toString().padStart(3,'0');
+        ws = new WebSocket('wss://chart-data.bullionvault.com/price_feed/'+svr+'/'+rand(8)+'/websocket');
+        ws.onopen = function(){};
+        ws.onmessage = function(e){
+            var dat = e.data;
+            if(dat === 'o'){
+                ws.send('["CONNECT\\naccept-version:1.2,1.1,1.0\\nheart-beat:10000,10000\\n\\n\\u0000"]');
+            } else if(dat.startsWith('a[')){
+                try {
+                    var arr = JSON.parse(dat.substring(1));
+                    arr.forEach(proc);
+                } catch(err){}
+            }
+        };
+        ws.onclose = function(){ clearInterval(tm); setTimeout(conn, 5000); };
+    }
+
+    function proc(msg){
+        if(msg.startsWith('CONNECTED')){
+            for(var k in M) ws.send('["SUBSCRIBE\\nid:'+M[k].h+'\\ndestination:/t/'+M[k].c+'/USD/5\\n\\n\\u0000"]');
+            tm = setInterval(function(){}, 10000);
+        } else if(msg.startsWith('MESSAGE')){
+            var p = msg.split('\n\n');
+            if(p.length<2) return;
+            var head = p[0], body = p[1].replace(/\u0000$/,'');
+            var subId = '';
+            var hl = head.split('\n');
+            for(var i=0;i<hl.length;i++){ if(hl[i].indexOf('subscription:')===0) subId = hl[i].split(':')[1]; }
+            
+            var val = null;
+            try {
+                var j = JSON.parse(body);
+                if(j.prices && Array.isArray(j.prices) && j.prices.length>0) val = j.prices[0].latestPrice;
+                else if(j.price) val = j.price;
+                else if(j.latestPrice) val = j.latestPrice;
+            } catch(e){ return; }
+
+            if(val !== null){
+                for(var k in M){
+                    if(subId === M[k].h){
+                        upd(k, val);
+                        ws.send('["UNSUBSCRIBE\\nid:'+M[k].h+'\\n\\n\\u0000"]');
+                        ws.send('["SUBSCRIBE\\nid:'+M[k].r+'\\ndestination:/t/'+M[k].c+'/USD\\n\\n\\u0000"]');
+                    } else if(subId === M[k].r){
+                        upd(k, val);
+                    }
+                }
+            }
+        }
+    }
+
+    // 格式化數字千分位整數
+    var fInt = function(n){ return Math.round(n).toLocaleString('zh-HK'); };
+
+    function upd(key, raw){
+        var cp = parseFloat(raw);
+        if(isNaN(cp)) return;
+        
+        // 係數調整 (金:7.55 | 銀:7.0 | 鉑:7.22)
+        var coefficient;
+        switch(key) {
+            case 'au': coefficient = 7.55; break;
+            case 'ag': coefficient = 7.0; break;
+            case 'pt': coefficient = 7.22; break;
+            default: coefficient = 7.55;
+        }
+        
+        var mp = cp / 32.15;           // USD/oz 基準
+        var poz = mp * coefficient;    // 每安士 HKD
+        var pg = poz / 31.1;           // 每克 HKD 回收基價
+
+        // 只處理金銀，鉑金忽略銷售表格
+        if(key !== 'au' && key !== 'ag') return;
+
+        // 銷售加價：黃金每克+60，白銀每克+3
+        var sellGram;
+        if(key === 'au') sellGram = pg + 60;
+        if(key === 'ag') sellGram = pg + 3;
+
+        // 各產品克重對應
+        var productList = [];
+        if(key === 'au') {
+            productList = [
+                {id:'sell-au-10g', weight:10},
+                {id:'sell-au-20g', weight:20},
+                {id:'sell-au-50g', weight:50},
+                {id:'sell-au-tael', weight:37.429}, // 1香港兩
+                {id:'sell-au-1kg', weight:1000}
+            ];
+        }
+        if(key === 'ag') {
+            productList = [
+                {id:'sell-ag-500g', weight:500},
+                {id:'sell-ag-1kg', weight:1000}
+            ];
+        }
+
+        productList.forEach(item=>{
+            var total = sellGram * item.weight;
+            var el = d.getElementById(item.id);
+            if(!el) return;
+
+            var oldTotal = lastSellTotal[item.id];
+            var arrow = '';
+            var cls = '';
+
+            if(oldTotal !== null) {
+                if(total > oldTotal) {
+                    arrow = ' <i class="fas fa-caret-up"></i>';
+                    cls = 'price-up';
+                } else if(total < oldTotal) {
+                    arrow = ' <i class="fas fa-caret-down"></i>';
+                    cls = 'price-down';
+                }
+            }
+            el.className = cls;
+            el.innerHTML = fInt(total) + arrow;
+            lastSellTotal[item.id] = total;
+        });
+        lastGramPrice[key] = pg;
+    }
+    
+    conn();
+})();
+</script>
+</body>
+</html>
