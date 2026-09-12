@@ -1,17 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-
 <title>鼎鑫實金回收價格 · 全面漲跌</title>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
   * {
     margin: 0;
@@ -47,26 +40,7 @@
     position: relative;
     overflow: hidden;
   }
-  header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(
-      to right,
-      rgba(255, 215, 0, 0) 0%,
-      rgba(255, 215, 0, 0.3) 50%,
-      rgba(255, 215, 0, 0) 100%
-    );
-    transform: skewX(-25deg);
-    animation: shine 6s infinite linear;
-  }
-  @keyframes shine {
-    0% { left: -75%; }
-    100% { left: 150%; }
-  }
+  /* 移除header背景shine光影特效，刪除::before */
   .header-flex-wrap {
     display: flex;
     justify-content: space-between;
@@ -129,12 +103,7 @@
   }
   .hotline-full-line i {
     margin-right: 20px;
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    /* 移除WhatsApp圖標pulse脈動動畫 */
   }
   .timestamp-full-line {
     width: 100%;
@@ -194,26 +163,10 @@
     font-weight: 700;
     font-size: clamp(1.8rem,4vw,calc(19.8rem * 0.65));
     color: #ffd700;
-    text-shadow: 0 0 12px rgba(255, 215, 0, 0.7), 0 3px 6px rgba(0, 0, 0, 0.5);
-    transition: all 0.5s ease;
+    /* 移除價格漲跌縮放動畫 */
     display: inline-block;
   }
-  .price-val.up {
-    animation: priceUp 0.5s ease-in-out;
-  }
-  .price-val.down {
-    animation: priceDown 0.5s ease-in-out;
-  }
-  @keyframes priceUp {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); color: #ff6b6b; }
-    100% { transform: scale(1); }
-  }
-  @keyframes priceDown {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); color: #4ecdc4; }
-    100% { transform: scale(1); }
-  }
+  /* 移除 .up / .down 動畫樣式 */
   .empty-tip {
     font-size: clamp(1rem,2vw,calc(6rem * 0.65));
     color: #888;
@@ -229,7 +182,8 @@
     border: 3px solid #193366;
   }
   .banner-top-text {
-    font-size: clamp(1.8rem,5vw,6rem);
+    /* 免費報價放大1倍 */
+    font-size: clamp(3.6rem,10vw,12rem);
     font-weight: 900;
     color: #ffd700;
     text-shadow: 0 0 18px rgba(255, 215, 0, 0.6), 0 4px 8px #000;
@@ -237,7 +191,8 @@
     letter-spacing: 4px;
   }
   .banner-bottom-text {
-    font-size: clamp(1rem,2.5vw,2.8rem);
+    /* 免費報價下方文字放大1倍 */
+    font-size: clamp(2rem,5vw,5.6rem);
     font-weight: bold;
     color: #ffffff;
     line-height: 1.8;
@@ -250,7 +205,8 @@
     padding: clamp(12px,2vw,20px) clamp(15px,2vw,25px);
     margin-top: 20px;
     text-align: right;
-    font-size: clamp(1rem,2vw,150%);
+    /* 備註區放大1倍 */
+    font-size: clamp(2rem,4vw,300%);
     line-height: 1.6;
   }
   .note-normal {
@@ -276,356 +232,201 @@
     .hotline-full-line i { font-size: 1.6rem; margin-right: 6px; }
   }
 </style>
-
 </head>
-
 <body>
-
 <div class="container">
-
   <header>
-    <div class="header-flex-wrap">
-      <!-- 移除LOGO圖片 -->
-      <div class="header-left-logo">
-        <div class="header-title-text">
-          <div class="main-title-top">鼎鑫實金</div>
-          <div class="main-title-bottom">回收行情</div>
-        </div>
-      </div>
-      <div class="header-right-qrcode">
-        <!-- 替換QR Code連結 -->
-        <img src="https://i.ibb.co/MDdnBrLb/qrcode-www-dsgolds-com.png" alt="查詢二維碼" class="qrcode-img">
-        <div class="qrcode-tip">實時金價，掃碼即看</div>
-      </div>
-    </div>
-
+   <div class="header-flex-wrap">
+     <!-- 移除LOGO圖片 -->
+     <div class="header-left-logo">
+       <div class="header-title-text">
+         <div class="main-title-top">鼎鑫實金</div>
+         <div class="main-title-bottom">回收行情</div>
+       </div>
+     </div>
+     <div class="header-right-qrcode">
+       <!-- 替換QR Code連結 -->
+       <img src="https://i.ibb.co/MDdnBrLb/qrcode-www-dsgolds-com.png" alt="查詢二維碼" class="qrcode-img">
+       <div class="qrcode-tip">實時金價，掃碼即看</div>
+     </div>
+   </div>
     <div class="hotline-full-line">
       <i class="fab fa-whatsapp"></i>上環查詢電話: 5396 2703
     </div>
     <div class="hotline-full-line">
       <i class="fab fa-whatsapp"></i>分店查詢電話: 5428 7123
     </div>
-
     <div class="timestamp-full-line">更新時間: <span id="ut">初始化中...</span></div>
-  </header>
-
+ </header>
   <div class="price-table-container">
-    <table class="price-table">
-      <thead>
-        <tr>
-          <th>商品<br>(純度9999)</th>
-          <th>回購價<br>(每兩)</th>
-          <th>銷售價<br>(每兩)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="col-name">黃金AU</td>
-          <td><div class="price-val" id="buy-au">--</div></td>
-          <td><div class="price-val" id="sell-au">--</div></td>
-        </tr>
-        <tr>
-          <td class="col-name">白銀AG</td>
-          <td><div class="price-val" id="buy-ag">--</div></td>
-          <td><div class="price-val" id="sell-ag">--</div></td>
-        </tr>
-        <tr>
-          <td class="col-name">鉑金PT</td>
-          <td><div class="price-val" id="buy-pt">--</div></td>
-          <td><div class="empty-tip">暫未開售</div></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
+   <table class="price-table">
+     <thead>
+       <tr>
+         <th>商品<br>(純度9999)</th>
+         <th>回購價<br>(每兩)</th>
+         <th>銷售價<br>(每兩)</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <td class="col-name">黃金AU</td>
+         <td><div class="price-val" id="buy-au">--</div></td>
+         <td><div class="price-val" id="sell-au">--</div></td>
+       </tr>
+       <tr>
+         <td class="col-name">白銀AG</td>
+         <td><div class="price-val" id="buy-ag">--</div></td>
+         <td><div class="price-val" id="sell-ag">--</div></td>
+       </tr>
+       <tr>
+         <td class="col-name">鉑金PT</td>
+         <td><div class="price-val" id="buy-pt">--</div></td>
+         <td><div class="empty-tip">暫未開售</div></td>
+       </tr>
+     </tbody>
+   </table>
+ </div>
 <div class="banner-blue-block">
-    <div class="banner-top-text">💵免費報價💵</div>
-    <div class="banner-bottom-text">
-        ✅收足金✅K金✅金銀條✅金銀幣✅銀器<br>
-        ✅低K首飾✅舊金✅壞金✅帶石金飾
-    </div>
+   <div class="banner-top-text">💵免費報價💵</div>
+   <div class="banner-bottom-text">
+       ✅收足金✅K金✅金銀條✅金銀幣✅銀器<br>
+       ✅低K首飾✅舊金✅壞金✅帶石金飾
+   </div>
 </div>
-
   <div class="note-footer">
-    <div class="note-normal">
-      *最終報價需按照實際純度計算
-    </div>
-    <div class="note-gold">*免火耗 免佣金 免手續費</div>
-  </div>
+   <div class="note-normal">
+     *最終報價需按照實際純度計算
+   </div>
+   <div class="note-gold">*免火耗 免佣金 免手續費</div>
+ </div>
 </div>
-
 <script>
-
 (function(){
-
     var d = document, ut = d.getElementById('ut');
-
     var fmt = function(n){ return n<10?'0'+n:n; };
-
     setInterval(function(){ 
-
         var t = new Date(); 
-
         ut.textContent = t.getFullYear() + '年' + fmt(t.getMonth()+1) + '月' + fmt(t.getDate()) + '日 ' + fmt(t.getHours()) + ':' + fmt(t.getMinutes()) + ':' + fmt(t.getSeconds()); 
-
     }, 1000);
-
     
-
     var M = {
-
         au:{ c:'AUX', h:'sh-au', r:'sr-au' },
-
         ag:{ c:'AGX', h:'sh-ag', r:'sr-ag' },
-
         pt:{ c:'PTX', h:'sh-pt', r:'sr-pt' }
-
     };
-
     var ws, tm;
-
     var rand = function(l){ 
-
         var c = 'abcdefghijklmnopqrstuvwxyz0123456789', r = ''; 
-
         for(var i=0; i<l; i++) r += c.charAt(Math.floor(Math.random()*c.length)); 
-
         return r;
-
     };
-
     
-
     var lastValues = {};
-
     function conn(){
-
         var svr = Math.floor(Math.random()*1000).toString().padStart(3,'0');
-
         ws = new WebSocket('wss://chart-data.bullionvault.com/price_feed/'+svr+'/'+rand(8)+'/websocket');
-
         ws.onopen = function(){};
-
         ws.onmessage = function(e){
-
             var dat = e.data;
-
             if(dat === 'o'){
-
                 ws.send('["CONNECT\\naccept-version:1.2,1.1,1.0\\nheart-beat:10000,10000\\n\\n\\u0000"]');
-
             } else if(dat.startsWith('a[')){
-
                 try {
-
                     var arr = JSON.parse(dat.substring(1));
-
                     arr.forEach(proc);
-
                 } catch(err){}
-
             }
-
         };
-
         ws.onclose = function(){ clearInterval(tm); setTimeout(conn, 5000); };
-
     }
-
     function proc(msg){
-
         if(msg.startsWith('CONNECTED')){
-
             for(var k in M) ws.send('["SUBSCRIBE\\nid:'+M[k].h+'\\ndestination:/t/'+M[k].c+'/USD/5\\n\\n\\u0000"]');
-
             tm = setInterval(function(){}, 10000);
-
         } else if(msg.startsWith('MESSAGE')){
-
             var p = msg.split('\n\n');
-
             if(p.length<2) return;
-
             var head = p[0], body = p[1].replace(/\u0000$/,'');
-
             var subId = '';
-
             var hl = head.split('\n');
-
             for(var i=0;i<hl.length;i++){ if(hl[i].indexOf('subscription:')===0) subId = hl[i].split(':')[1]; }
-
             
-
             var val = null;
-
             try {
-
                 var j = JSON.parse(body);
-
                 if(j.prices && Array.isArray(j.prices) && j.prices.length>0) val = j.prices[0].latestPrice;
-
                 else if(j.price) val = j.price;
-
                 else if(j.latestPrice) val = j.latestPrice;
-
             } catch(e){ return; }
-
             if(val !== null){
-
                 for(var k in M){
-
                     if(subId === M[k].h){
-
                         upd(k, val);
-
                         ws.send('["UNSUBSCRIBE\\nid:'+M[k].h+'\\n\\n\\u0000"]');
-
                         ws.send('["SUBSCRIBE\\nid:'+M[k].r+'\\ndestination:/t/'+M[k].c+'/USD\\n\\n\\u0000"]');
-
                     } else if(subId === M[k].r){
-
                         upd(k, val);
-
                     }
-
                 }
-
             }
-
         }
-
     }
-
     var fHkd = function(n){ return n.toLocaleString('zh-HK',{minimumFractionDigits:0,maximumFractionDigits:0}); };
-
     function upd(key, raw){
-
         var cp = parseFloat(raw);
-
         if(isNaN(cp)) return;
-
         
-
         var coefficient;
-
         switch(key) {
-
             case 'au': coefficient = 7.55; break;
-
             case 'ag': coefficient = 7; break;
-
             case 'pt': coefficient = 7.22; break;
-
             default: coefficient = 7.52;
-
         }
-
         
-
         var mp = cp / 32.15;
-
         var poz = mp * coefficient;
-
         var pg = poz / 31.1;
-
         var buyPrice = pg * 37.429;
-
         var sellPrice = 0;
-
         if(key === 'au') sellPrice = buyPrice + 2245;
-
         if(key === 'ag') sellPrice = buyPrice + 82;
-
         
-
         var buyEl = d.getElementById('buy-' + key);
-
         var oldBuyVal = lastValues.hasOwnProperty('buy-' + key) ? lastValues['buy-' + key] : null;
-
         var buyColor = '#ffd700';
-
         
-
         if(oldBuyVal !== null && buyPrice !== oldBuyVal) {
-
             if(buyPrice > oldBuyVal) {
-
                 buyColor = 'rgba(255, 50, 50, 0.9)';
-
-                buyEl.classList.add('up');
-
-                setTimeout(() => buyEl.classList.remove('up'), 500);
-
             } else if(buyPrice < oldBuyVal) {
-
                 buyColor = 'rgba(50, 200, 50, 0.9)';
-
-                buyEl.classList.add('down');
-
-                setTimeout(() => buyEl.classList.remove('down'), 500);
-
             }
-
         }
-
         
-
         buyEl.textContent = fHkd(buyPrice);
-
         buyEl.style.color = buyColor;
-
         lastValues['buy-' + key] = buyPrice;
-
         if(key === 'au' || key === 'ag'){
-
             var sellEl = d.getElementById('sell-' + key);
-
             var oldSellVal = lastValues.hasOwnProperty('sell-' + key) ? lastValues['sell-' + key] : null;
-
             var sellColor = '#ffd700';
-
             
-
             if(oldSellVal !== null && sellPrice !== oldSellVal) {
-
                 if(sellPrice > oldSellVal) {
-
                     sellColor = 'rgba(255, 50, 50, 0.9)';
-
-                    sellEl.classList.add('up');
-
-                    setTimeout(() => sellEl.classList.remove('up'), 500);
-
                 } else if(sellPrice < oldSellVal) {
-
                     sellColor = 'rgba(50, 200, 50, 0.9)';
-
-                    sellEl.classList.add('down');
-
-                    setTimeout(() => sellEl.classList.remove('down'), 500);
-
                 }
-
             }
-
             
-
             sellEl.textContent = fHkd(sellPrice);
-
             sellEl.style.color = sellColor;
-
             lastValues['sell-' + key] = sellPrice;
-
         }
-
     }
-
     conn();
-
 })();
-
 </script>
-
 </body>
-
 </html>
