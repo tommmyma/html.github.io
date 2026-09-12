@@ -38,20 +38,21 @@
     border: 4px solid #c8b450;
     width: 100%;
     position: relative;
-    overflow: hidden;
+    /* 移除header閃光背景動畫 */
+    overflow: visible;
   }
-  /* 移除header背景shine光影特效，刪除::before */
+  /* 移除header::before 光效動畫 */
   .header-flex-wrap {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     gap: clamp(20px,3vw,40px);
     flex-wrap: wrap;
   }
   .header-left-logo {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: clamp(12px,2vw,24px);
   }
   .header-title-text {
@@ -103,7 +104,7 @@
   }
   .hotline-full-line i {
     margin-right: 20px;
-    /* 移除WhatsApp圖標pulse脈動動畫 */
+    /* 移除whatsapp pulse動畫 */
   }
   .timestamp-full-line {
     width: 100%;
@@ -163,10 +164,12 @@
     font-weight: 700;
     font-size: clamp(1.8rem,4vw,calc(19.8rem * 0.65));
     color: #ffd700;
-    /* 移除價格漲跌縮放動畫 */
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.7), 0 3px 6px rgba(0, 0, 0, 0.5);
+    /* 移除價格漲跌動畫 */
+    transition:none;
     display: inline-block;
   }
-  /* 移除 .up / .down 動畫樣式 */
+  /* 移除 up / down 動畫 */
   .empty-tip {
     font-size: clamp(1rem,2vw,calc(6rem * 0.65));
     color: #888;
@@ -181,9 +184,9 @@
     text-align: center;
     border: 3px solid #193366;
   }
+  /* 免費報價字體放大0.8倍 */
   .banner-top-text {
-    /* 免費報價放大1倍 */
-    font-size: clamp(3.6rem,10vw,12rem);
+    font-size: clamp(1.8rem*0.8,5vw*0.8,6rem*0.8);
     font-weight: 900;
     color: #ffd700;
     text-shadow: 0 0 18px rgba(255, 215, 0, 0.6), 0 4px 8px #000;
@@ -191,12 +194,12 @@
     letter-spacing: 4px;
   }
   .banner-bottom-text {
-    /* 免費報價下方文字放大1倍 */
-    font-size: clamp(2rem,5vw,5.6rem);
+    font-size: clamp(1rem*0.8,2.5vw*0.8,2.8rem*0.8);
     font-weight: bold;
     color: #ffffff;
     line-height: 1.8;
   }
+  /* 底部備註字體放大1倍 */
   .note-footer {
     width: 100%;
     background: #000000;
@@ -205,8 +208,7 @@
     padding: clamp(12px,2vw,20px) clamp(15px,2vw,25px);
     margin-top: 20px;
     text-align: right;
-    /* 備註區放大1倍 */
-    font-size: clamp(2rem,4vw,300%);
+    font-size: clamp(1rem*2,2vw*2,150%*2);
     line-height: 1.6;
   }
   .note-normal {
@@ -215,6 +217,16 @@
   .note-gold {
     color: #ffd000;
     font-weight: bold;
+  }
+  /* 中文+英文行樣式 */
+  .cn-en-row > .cn{
+    display:block;
+  }
+  .cn-en-row > .en{
+    display:block;
+    font-size: 0.6em;
+    opacity:0.8;
+    margin-top:4px;
   }
   @media (max-width: 768px) {
     .header-flex-wrap {
@@ -229,84 +241,131 @@
     .hotline-full-line {
       text-align: center;
     }
-    .hotline-full-line i { font-size: 1.6rem; margin-right: 6px; }
   }
 </style>
 </head>
 <body>
 <div class="container">
   <header>
-   <div class="header-flex-wrap">
-     <!-- 移除LOGO圖片 -->
-     <div class="header-left-logo">
-       <div class="header-title-text">
-         <div class="main-title-top">鼎鑫實金</div>
-         <div class="main-title-bottom">回收行情</div>
-       </div>
-     </div>
-     <div class="header-right-qrcode">
-       <!-- 替換QR Code連結 -->
-       <img src="https://i.ibb.co/MDdnBrLb/qrcode-www-dsgolds-com.png" alt="查詢二維碼" class="qrcode-img">
-       <div class="qrcode-tip">實時金價，掃碼即看</div>
-     </div>
-   </div>
-    <div class="hotline-full-line">
-      <i class="fab fa-whatsapp"></i>上環查詢電話: 5396 2703
+    <div class="header-flex-wrap">
+      <div class="header-left-logo">
+        <div class="header-title-text">
+          <div class="main-title-top cn-en-row">
+            <span class="cn">鼎鑫實金</span>
+            <span class="en">Din Sun Precious Metal</span>
+          </div>
+          <div class="main-title-bottom cn-en-row">
+            <span class="cn">回收行情</span>
+            <span class="en">Recycling Market</span>
+          </div>
+        </div>
+      </div>
+      <div class="header-right-qrcode">
+        <img src="https://i.ibb.co/MDdnBrLb/qrcode-www-dsgolds-com.png" alt="查詢二維碼" class="qrcode-img">
+        <div class="qrcode-tip cn-en-row">
+          <span class="cn">實時金價，掃碼即看</span>
+          <span class="en">Scan QR for Live Price</span>
+        </div>
+      </div>
     </div>
-    <div class="hotline-full-line">
-      <i class="fab fa-whatsapp"></i>分店查詢電話: 5428 7123
+
+    <div class="hotline-full-line cn-en-row">
+      <span class="cn"><i class="fab fa-whatsapp"></i>上環查詢電話: 5396 2703</span>
+      <span class="en"><i class="fab fa-whatsapp"></i>Sheung Wan Hotline: 5396 2703</span>
     </div>
-    <div class="timestamp-full-line">更新時間: <span id="ut">初始化中...</span></div>
- </header>
+    <div class="hotline-full-line cn-en-row">
+      <span class="cn"><i class="fab fa-whatsapp"></i>分店查詢電話: 5428 7123</span>
+      <span class="en"><i class="fab fa-whatsapp"></i>Branch Hotline: 5428 7123</span>
+    </div>
+
+    <div class="timestamp-full-line cn-en-row">
+      <span class="cn">更新時間Update Time: <span id="ut">初始化中...</span></span>
+    </div>
+  </header>
+
   <div class="price-table-container">
-   <table class="price-table">
-     <thead>
-       <tr>
-         <th>商品<br>(純度9999)</th>
-         <th>回購價<br>(每兩)</th>
-         <th>銷售價<br>(每兩)</th>
-       </tr>
-     </thead>
-     <tbody>
-       <tr>
-         <td class="col-name">黃金AU</td>
-         <td><div class="price-val" id="buy-au">--</div></td>
-         <td><div class="price-val" id="sell-au">--</div></td>
-       </tr>
-       <tr>
-         <td class="col-name">白銀AG</td>
-         <td><div class="price-val" id="buy-ag">--</div></td>
-         <td><div class="price-val" id="sell-ag">--</div></td>
-       </tr>
-       <tr>
-         <td class="col-name">鉑金PT</td>
-         <td><div class="price-val" id="buy-pt">--</div></td>
-         <td><div class="empty-tip">暫未開售</div></td>
-       </tr>
-     </tbody>
-   </table>
- </div>
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th class="cn-en-row">
+            <span class="cn">商品<br>(純度9999)</span>
+            <span class="en">Product<br>(9999 Purity)</span>
+          </th>
+          <th class="cn-en-row">
+            <span class="cn">回購價<br>(每兩)</span>
+            <span class="en">Buyback<br>(Per Tael)</span>
+          </th>
+          <th class="cn-en-row">
+            <span class="cn">銷售價<br>(每兩)</span>
+            <span class="en">Selling Price<br>(Per Tael)</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-name cn-en-row">
+            <span class="cn">黃金AU</span>
+            <span class="en">Gold AU</span>
+          </td>
+          <td><div class="price-val" id="buy-au">--</div></td>
+          <td><div class="price-val" id="sell-au">--</div></td>
+        </tr>
+        <tr>
+          <td class="col-name cn-en-row">
+            <span class="cn">白銀AG</span>
+            <span class="en">Silver AG</span>
+          </td>
+          <td><div class="price-val" id="buy-ag">--</div></td>
+          <td><div class="price-val" id="sell-ag">--</div></td>
+        </tr>
+        <tr>
+          <td class="col-name cn-en-row">
+            <span class="cn">鉑金PT</span>
+            <span class="en">Platinum PT</span>
+          </td>
+          <td><div class="price-val" id="buy-pt">--</div></td>
+          <td class="empty-tip cn-en-row">
+            <span class="cn">暫未開售</span>
+            <span class="en">Not Available</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 <div class="banner-blue-block">
-   <div class="banner-top-text">💵免費報價💵</div>
-   <div class="banner-bottom-text">
-       ✅收足金✅K金✅金銀條✅金銀幣✅銀器<br>
-       ✅低K首飾✅舊金✅壞金✅帶石金飾
-   </div>
+    <div class="banner-top-text cn-en-row">
+        <span class="cn">💵免費報價💵</span>
+        <span class="en">💵Free Quotation💵</span>
+    </div>
+    <div class="banner-bottom-text cn-en-row">
+        <span class="cn">✅收足金✅K金✅金銀條✅金銀幣✅銀器<br>✅低K首飾✅舊金✅壞金✅帶石金飾</span>
+        <span class="en">✅Pure Gold ✅K Gold ✅Bullion ✅Coin ✅Silverware<br>✅Low K Jewelry ✅Old Gold ✅Damaged Gold ✅Stone-set Gold</span>
+    </div>
 </div>
+
   <div class="note-footer">
-   <div class="note-normal">
-     *最終報價需按照實際純度計算
-   </div>
-   <div class="note-gold">*免火耗 免佣金 免手續費</div>
- </div>
+    <div class="note-normal cn-en-row">
+      <span class="cn">*最終報價需按照實際純度計算</span>
+      <span class="en">*Final price based on actual purity</span>
+    </div>
+    <div class="note-gold cn-en-row">
+      <span class="cn">*免火耗 免佣金 免手續費</span>
+      <span class="en">*No Melting Loss, No Commission, No Service Fee</span>
+    </div>
+  </div>
 </div>
+
 <script>
 (function(){
-    var d = document, ut = d.getElementById('ut');
+    var d = document, ut = d.getElementById('ut'), utEn = d.getElementById('ut-en');
     var fmt = function(n){ return n<10?'0'+n:n; };
     setInterval(function(){ 
         var t = new Date(); 
-        ut.textContent = t.getFullYear() + '年' + fmt(t.getMonth()+1) + '月' + fmt(t.getDate()) + '日 ' + fmt(t.getHours()) + ':' + fmt(t.getMinutes()) + ':' + fmt(t.getSeconds()); 
+        var timeStr = t.getFullYear() + '年' + fmt(t.getMonth()+1) + '月' + fmt(t.getDate()) + '日 ' + fmt(t.getHours()) + ':' + fmt(t.getMinutes()) + ':' + fmt(t.getSeconds());
+        var timeEnStr = t.getFullYear() + '-' + fmt(t.getMonth()+1) + '-' + fmt(t.getDate()) + ' ' + fmt(t.getHours()) + ':' + fmt(t.getMinutes()) + ':' + fmt(t.getSeconds());
+        ut.textContent = timeStr;
+        utEn.textContent = timeEnStr;
     }, 1000);
     
     var M = {
@@ -393,35 +452,13 @@
         if(key === 'ag') sellPrice = buyPrice + 82;
         
         var buyEl = d.getElementById('buy-' + key);
-        var oldBuyVal = lastValues.hasOwnProperty('buy-' + key) ? lastValues['buy-' + key] : null;
-        var buyColor = '#ffd700';
-        
-        if(oldBuyVal !== null && buyPrice !== oldBuyVal) {
-            if(buyPrice > oldBuyVal) {
-                buyColor = 'rgba(255, 50, 50, 0.9)';
-            } else if(buyPrice < oldBuyVal) {
-                buyColor = 'rgba(50, 200, 50, 0.9)';
-            }
-        }
-        
         buyEl.textContent = fHkd(buyPrice);
-        buyEl.style.color = buyColor;
+        buyEl.style.color = '#ffd700';
         lastValues['buy-' + key] = buyPrice;
         if(key === 'au' || key === 'ag'){
             var sellEl = d.getElementById('sell-' + key);
-            var oldSellVal = lastValues.hasOwnProperty('sell-' + key) ? lastValues['sell-' + key] : null;
-            var sellColor = '#ffd700';
-            
-            if(oldSellVal !== null && sellPrice !== oldSellVal) {
-                if(sellPrice > oldSellVal) {
-                    sellColor = 'rgba(255, 50, 50, 0.9)';
-                } else if(sellPrice < oldSellVal) {
-                    sellColor = 'rgba(50, 200, 50, 0.9)';
-                }
-            }
-            
             sellEl.textContent = fHkd(sellPrice);
-            sellEl.style.color = sellColor;
+            sellEl.style.color = '#ffd700';
             lastValues['sell-' + key] = sellPrice;
         }
     }
