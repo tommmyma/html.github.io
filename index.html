@@ -218,24 +218,20 @@
     color: #ffffff;
     line-height: 1.8;
   }
-  /* ========== 第三欄50/50布局 兩個獨立區塊，樣式同免費報價藍色區塊 ========== */
-  .bottom-banner-wrap{
+  /* ========== 第三欄 50-50 平分排版 ========== */
+  .note-footer {
+    width: 100%;
     display:flex;
-    gap: clamp(20px,3vw,40px);
     flex-wrap: wrap;
-    width:100%;
-    margin: clamp(20px,4vw,62.5px) 0 20px;
+    gap:20px;
+    margin-top: 20px;
   }
-  .bottom-half-block {
-    flex: 0 0 50%;
-    min-width:300px;
-    background: #0a1428;
+  .note-half-block{
+    flex: 0 0 calc(50% - 10px);
+    background: #000000;
+    border: 4px solid #333;
     border-radius: 15px;
-    padding: clamp(15px,3vw,35px) clamp(10px,2vw,20px);
-    border: 3px solid #193366;
-  }
-  .text-right-block{
-    text-align:right;
+    padding: clamp(12px,2vw,20px) clamp(15px,2vw,25px);
   }
   .note-term-line{
     font-size: clamp(0.6rem,1.5vw,100%);
@@ -283,8 +279,9 @@
     .banner-blue-wrap{
       flex-direction:column;
     }
-    .bottom-banner-wrap{
-      flex-direction:column;
+    /* 手機版自動變100%寬 */
+    .note-half-block{
+      flex: 0 0 100%;
     }
   }
 </style>
@@ -353,10 +350,10 @@
       </tbody>
     </table>
   </div>
-  <!-- ========== 第三欄：50-50 左右兩個獨立區塊，樣式同免費報價 ========== -->
-  <div class="bottom-banner-wrap">
-    <!-- 左側：電話獨立區塊 -->
-    <div class="bottom-half-block">
+  <!-- 第三欄：50% + 50% 兩個獨立區塊平排 -->
+  <div class="note-footer">
+    <!-- 左邊獨立區塊：兩個電話 -->
+    <div class="note-half-block">
       <div class="hotline-full-line cn-en-row">
         <span class="cn"><i class="fab fa-whatsapp"></i>上環查詢電話: 5396 2703</span>
         <span class="en"><i class="fab fa-whatsapp"></i>Sheung Wan Hotline: 5396 2703</span>
@@ -366,8 +363,8 @@
         <span class="en"><i class="fab fa-whatsapp"></i>Branch Hotline: 5428 7123</span>
       </div>
     </div>
-    <!-- 右側：條款獨立區塊，文字置右 -->
-    <div class="bottom-half-block text-right-block">
+    <!-- 右邊獨立區塊：三條條款，文字置右 -->
+    <div class="note-half-block" style="text-align:right;">
       <div class="note-term-line note-normal cn-en-row">
         <span class="cn">*最終報價需按照實際純度計算</span>
         <span class="en">*Final price based on actual purity</span>
