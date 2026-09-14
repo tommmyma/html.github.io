@@ -218,11 +218,11 @@
     color: #ffffff;
     line-height: 1.8;
   }
-  /* ========== 第三欄 50-50 平分排版 ========== */
+  /* ========== 第三欄 固定50-50，取消手機堆疊 ========== */
   .note-footer {
     width: 100%;
     display:flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap:20px;
     margin-top: 20px;
   }
@@ -279,10 +279,7 @@
     .banner-blue-wrap{
       flex-direction:column;
     }
-    /* 手機版自動變100%寬 */
-    .note-half-block{
-      flex: 0 0 100%;
-    }
+    /* 移除手機版note-half-block 100%設定，強制維持50% */
   }
 </style>
 </head>
@@ -350,7 +347,7 @@
       </tbody>
     </table>
   </div>
-  <!-- 第三欄：50% + 50% 兩個獨立區塊平排 -->
+  <!-- 第三欄：永久50% + 50% 兩個獨立區塊橫排，不再上下堆疊 -->
   <div class="note-footer">
     <!-- 左邊獨立區塊：兩個電話 -->
     <div class="note-half-block">
