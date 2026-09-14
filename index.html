@@ -218,29 +218,23 @@
     color: #ffffff;
     line-height: 1.8;
   }
-  /* 底部雙欄區塊，和banner-blue-wrap同樣結構 */
-  .footer-wrap{
+  /* ========== 全新底部50/50雙欄容器 ========== */
+  .bottom-5050-wrap{
     display:flex;
     gap: clamp(20px,3vw,40px);
     flex-wrap: wrap;
     width:100%;
     margin: clamp(20px,4vw,62.5px) 0 20px;
   }
-  .footer-phone-block {
-    flex:1;
+  .bottom-half-block{
+    flex: 0 0 50%;
     min-width:300px;
     background: #0a1428;
     border-radius: 15px;
     padding: clamp(15px,3vw,35px) clamp(10px,2vw,20px);
     border: 3px solid #193366;
   }
-  .footer-term-block {
-    flex:1;
-    min-width:300px;
-    background: #0a1428;
-    border-radius: 15px;
-    padding: clamp(15px,3vw,35px) clamp(10px,2vw,20px);
-    border: 3px solid #193366;
+  .text-right-block{
     text-align:right;
   }
   .note-term-line{
@@ -289,11 +283,8 @@
     .banner-blue-wrap{
       flex-direction:column;
     }
-    .footer-wrap{
+    .bottom-5050-wrap{
       flex-direction:column;
-    }
-    .footer-term-block{
-      text-align:left;
     }
   }
 </style>
@@ -362,10 +353,10 @@
       </tbody>
     </table>
   </div>
-
-  <!-- 底部新雙區塊，樣式同免費報價藍色框，左電話、右條款置右 -->
-  <div class="footer-wrap">
-    <div class="footer-phone-block">
+  <!-- 第三欄：50-50固定排版，左電話獨立區塊，右條款獨立區塊、文字置右 -->
+  <div class="bottom-5050-wrap">
+    <!-- 左半50%：電話獨立區塊，樣式同免費報價 -->
+    <div class="bottom-half-block">
       <div class="hotline-full-line cn-en-row">
         <span class="cn"><i class="fab fa-whatsapp"></i>上環查詢電話: 5396 2703</span>
         <span class="en"><i class="fab fa-whatsapp"></i>Sheung Wan Hotline: 5396 2703</span>
@@ -375,7 +366,8 @@
         <span class="en"><i class="fab fa-whatsapp"></i>Branch Hotline: 5428 7123</span>
       </div>
     </div>
-    <div class="footer-term-block">
+    <!-- 右半50%：三條條款獨立區塊，文字置右 -->
+    <div class="bottom-half-block text-right-block">
       <div class="note-term-line note-normal cn-en-row">
         <span class="cn">*最終報價需按照實際純度計算</span>
         <span class="en">*Final price based on actual purity</span>
@@ -389,7 +381,6 @@
       </div>
     </div>
   </div>
-
 </div>
 <script>
 (function(){
