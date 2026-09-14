@@ -218,15 +218,15 @@
     color: #ffffff;
     line-height: 1.8;
   }
-  /* ========== 全新底部50/50雙欄容器 ========== */
-  .bottom-5050-wrap{
+  /* ========== 第三欄50/50布局 兩個獨立區塊，樣式同免費報價藍色區塊 ========== */
+  .bottom-banner-wrap{
     display:flex;
     gap: clamp(20px,3vw,40px);
     flex-wrap: wrap;
     width:100%;
     margin: clamp(20px,4vw,62.5px) 0 20px;
   }
-  .bottom-half-block{
+  .bottom-half-block {
     flex: 0 0 50%;
     min-width:300px;
     background: #0a1428;
@@ -283,7 +283,7 @@
     .banner-blue-wrap{
       flex-direction:column;
     }
-    .bottom-5050-wrap{
+    .bottom-banner-wrap{
       flex-direction:column;
     }
   }
@@ -353,9 +353,9 @@
       </tbody>
     </table>
   </div>
-  <!-- 第三欄：50-50固定排版，左電話獨立區塊，右條款獨立區塊、文字置右 -->
-  <div class="bottom-5050-wrap">
-    <!-- 左半50%：電話獨立區塊，樣式同免費報價 -->
+  <!-- ========== 第三欄：50-50 左右兩個獨立區塊，樣式同免費報價 ========== -->
+  <div class="bottom-banner-wrap">
+    <!-- 左側：電話獨立區塊 -->
     <div class="bottom-half-block">
       <div class="hotline-full-line cn-en-row">
         <span class="cn"><i class="fab fa-whatsapp"></i>上環查詢電話: 5396 2703</span>
@@ -366,7 +366,7 @@
         <span class="en"><i class="fab fa-whatsapp"></i>Branch Hotline: 5428 7123</span>
       </div>
     </div>
-    <!-- 右半50%：三條條款獨立區塊，文字置右 -->
+    <!-- 右側：條款獨立區塊，文字置右 -->
     <div class="bottom-half-block text-right-block">
       <div class="note-term-line note-normal cn-en-row">
         <span class="cn">*最終報價需按照實際純度計算</span>
