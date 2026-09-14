@@ -1,983 +1,499 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-
 <title>鼎鑫實金回收價格 · 全面漲跌</title>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
-
   * {
-
     margin: 0;
-
     padding: 0;
-
     box-sizing: border-box;
-
     font-family: 'Consolas', 'Monaco', 'Microsoft JhengHei', monospace;
-
   }
-
   body {
-
     background: #0c0c0c;
-
     color: #f5f5f5;
-
     padding: 15px 0;
-
     line-height: 1.6;
-
     font-size: clamp(16px, 2vw, 64px);
-
     width: 100vw;
-
     min-height: 100vh;
-
     overflow-x: hidden;
-
     margin: 0 !important;
-
   }
-
   .container {
-
     width: min(98vw, 1600px) !important;
-
     margin: 0 auto !important;
-
     padding: 0 clamp(10px, 1.5vw, 15px) !important;
-
   }
-
   header {
-
     margin-bottom: clamp(20px, 4vw, 62.5px);
-
     padding: clamp(20px, 4vw, 50px) clamp(15px, 2vw, 25px) clamp(15px, 2vw, 30px) clamp(15px, 2vw, 25px);
-
     background: #121212;
-
     color: #fff;
-
     border-radius: 20px;
-
     box-shadow: 0 10px 30px rgba(200, 180, 80, 0.2), 0 0 20px rgba(255, 215, 0, 0.1) inset;
-
     border: 4px solid #c8b450;
-
     width: 100%;
-
     position: relative;
-
     /* 移除header閃光背景動畫 */
-
     overflow: visible;
-
   }
-
   /* 移除header::before 光效動畫 */
-
   .header-flex-wrap {
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: flex-start;
-
     width: 100%;
-
     gap: clamp(20px,3vw,40px);
-
     flex-wrap: wrap;
-
   }
-
   .header-left-logo {
-
     display: flex;
-
     flex-direction: column;
-
     align-items: flex-start;
-
     gap: clamp(12px,2vw,24px);
-
   }
-
   .header-title-text {
-
     display: flex;
-
     flex-direction: column;
-
   }
-
   .main-title-top {
-
     font-size: clamp(2rem, 6vw, 12rem);
-
     color: #ffffff;
-
     text-shadow: 0 0 25px rgba(255, 255, 255, 0.4), 0 2px 4px rgba(0, 0, 0, 0.5);
-
     letter-spacing: 3px;
-
     line-height: 1.1;
-
   }
-
   .main-title-bottom {
-
     font-size: clamp(2rem, 6vw, 12rem);
-
     color: #ffffff;
-
     text-shadow: 0 0 25px rgba(255, 255, 255, 0.4), 0 2px 4px rgba(0, 0, 0, 0.5);
-
     letter-spacing: 3px;
-
     line-height: 1.1;
-
   }
-
   .header-right-qrcode {
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
   }
-
   .qrcode-img {
-
     width: clamp(120px,12vw,540px);
-
     max-width: 100%;
-
     margin-bottom: 8px;
-
   }
-
   .qrcode-tip {
-
     background: #0066ff;
-
     color: #fff;
-
     font-size: clamp(0.8rem,1.2vw,90%);
-
     padding: 4px 12px;
-
     border-radius: 6px;
-
     white-space: nowrap;
-
   }
-
   .hotline-full-line {
-
     width: 100%;
-
     margin: clamp(8px,2vw,20px) 0;
-
     font-size: clamp(1.2rem,3vw,200%);
-
     color: #25d366;
-
     font-weight: 800;
-
     text-shadow: 0 0 15px rgba(37, 211, 102, 0.5), 0 0 10px rgba(0, 0, 0, 0.5);
-
     letter-spacing: 3px;
-
     line-height: 1.3;
-
     font-family: 'Consolas', 'Monaco', monospace;
-
+    /* 電話字體縮小50% */
+    font-size: clamp(0.6rem,1.5vw,100%);
   }
-
   .hotline-full-line i {
-
     margin-right: 20px;
-
     /* 移除whatsapp pulse動畫 */
-
   }
-
   .timestamp-full-line {
-
     width: 100%;
-
     text-align: right;
-
     font-size: clamp(0.8rem,1.5vw,75%);
-
     color: #ff3333;
-
     font-weight: bold;
-
     margin-top: 10px;
-
     text-shadow: 0 0 10px rgba(255,50,50,0.4);
-
     font-family: 'Consolas', 'Monaco', monospace;
-
   }
-
   .price-table-container {
-
     background: #121212;
-
     border-radius: 20px;
-
     overflow: hidden;
-
     box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 30px rgba(255, 215, 0, 0.1) inset;
-
     margin-bottom: clamp(20px,4vw,62.5px);
-
     border: 4px solid #333;
-
     padding: 0;
-
     width: 100%;
-
     position: relative;
-
   }
-
   .price-table {
-
     width: 100%;
-
     border-collapse: collapse;
-
   }
-
   .price-table thead tr {
-
     background: #1f1f1f;
-
   }
-
   .price-table th {
-
     padding: clamp(15px,2vw,30px) clamp(8px,1.5vw,20px);
-
     font-size: clamp(2rem,5vw,9rem);
-
     font-weight: 800;
-
     color: #fff;
-
     text-align: center;
-
     border-bottom: 6px solid #ff3333;
-
   }
-
   .price-table tbody tr:nth-child(odd) {
-
     background: #171717;
-
   }
-
   .price-table tbody tr:nth-child(even) {
-
     background: #1c1c1c;
-
   }
-
   .price-table td {
-
     padding: clamp(18px,3vw,40px) clamp(6px,1vw,20px);
-
     text-align: center;
-
     border-bottom: 2px solid #282828;
-
   }
-
   .col-name {
-
     font-size: clamp(2rem,4.5vw,8.5rem);
-
     font-weight: 700;
-
     color: #ffd000;
-
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6), 0 0 10px rgba(255,208,0,0.3);
-
     letter-spacing: 2px;
-
   }
-
   .price-val {
-
     font-weight: 700;
-
     font-size: clamp(1.8rem,4vw,calc(19.8rem * 0.65));
-
     color: #ffd700;
-
     text-shadow: 0 0 12px rgba(255, 215, 0, 0.7), 0 3px 6px rgba(0, 0, 0, 0.5);
-
     /* 移除價格漲跌動畫 */
-
     transition:none;
-
     display: inline-block;
-
   }
-
   /* 移除 up / down 動畫 */
-
   .empty-tip {
-
     font-size: clamp(1rem,2vw,calc(6rem * 0.65));
-
     color: #888;
-
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-
   }
-
   .banner-blue-wrap{
-
     display:flex;
-
     gap: clamp(20px,3vw,40px);
-
     flex-wrap: wrap;
-
     width:100%;
-
     margin: clamp(20px,4vw,62.5px) 0 20px;
-
   }
-
   .banner-blue-block {
-
     flex:1;
-
     min-width:300px;
-
     background: #0a1428;
-
     border-radius: 15px;
-
     padding: clamp(15px,3vw,35px) clamp(10px,2vw,20px);
-
     text-align: center;
-
     border: 3px solid #193366;
-
   }
-
   .qrcode-side-block{
-
     flex:0 0 clamp(220px,18vw,420px);
-
     background: #0a1428;
-
     border-radius: 15px;
-
     padding: clamp(15px,3vw,35px) clamp(10px,2vw,20px);
-
     border: 3px solid #193366;
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
-
   }
-
   /* 免費報價放大150% */
-
   .banner-top-text {
-
     font-size: clamp(1.8rem*1.5,5vw*1.5,6rem*1.5);
-
     font-weight: 900;
-
     color: #ffd700;
-
     text-shadow: 0 0 18px rgba(255, 215, 0, 0.6), 0 4px 8px #000;
-
     margin-bottom: 20px;
-
     letter-spacing: 4px;
-
   }
-
   .banner-bottom-text {
-
     font-size: clamp(1rem*1.5,2.5vw*1.5,2.8rem*1.5);
-
     font-weight: bold;
-
     color: #ffffff;
-
     line-height: 1.8;
-
   }
-
   /* 底部備註字體改75% */
-
   .note-footer {
-
     width: 100%;
-
     background: #000000;
-
     border: 4px solid #333;
-
     border-radius: 15px;
-
     padding: clamp(12px,2vw,20px) clamp(15px,2vw,25px);
-
     margin-top: 20px;
-
     display:flex;
-
     flex-wrap:wrap;
-
     gap:20px;
-
     justify-content:space-between;
-
     align-items:flex-start;
-
     font-size: clamp(1rem*0.75,2vw*0.75,150%*0.75);
-
     line-height: 1.6;
-
   }
-
   .note-left-phone{
-
     flex:0 0 420px;
-
   }
-
   .note-right-text{
-
     flex:1;
-
     min-width:300px;
-
     text-align:right;
-
   }
-
   .note-normal {
-
     color: #ffffff;
-
   }
-
   .note-gold {
-
     color: #ffd000;
-
     font-weight: bold;
-
   }
-
   .note-timestamp-line{
-
     width:100%;
-
     text-align:right;
-
     margin-top:8px;
-
     font-size: inherit;
-
     color:#ff3333;
-
     font-weight:bold;
-
   }
-
   /* 中文+英文行樣式 */
-
   .cn-en-row > .cn{
-
     display:block;
-
   }
-
   .cn-en-row > .en{
-
     display:block;
-
     font-size: 0.6em;
-
     opacity:0.8;
-
     margin-top:4px;
-
   }
-
   @media (max-width: 768px) {
-
     .header-flex-wrap {
-
       flex-direction: column;
-
       align-items: flex-start;
-
       gap: 20px;
-
     }
-
     .header-left-logo {
-
       flex-direction: column;
-
       text-align: left;
-
     }
-
     .hotline-full-line {
-
       text-align: left;
-
     }
-
     .banner-blue-wrap{
-
       flex-direction:column;
-
     }
-
     .note-footer{
-
       flex-direction:column;
-
     }
-
     .note-right-text{
-
       text-align:left;
-
     }
-
   }
-
 </style>
-
 </head>
-
 <body>
-
 <div class="container">
-
-  <!-- 第一部分：免費報價 -->
-
+  <!-- 最頂層：免費報價單元格，移除右邊二維碼單元格 -->
   <div class="banner-blue-wrap">
-
     <div class="banner-blue-block">
-
       <div class="banner-top-text cn-en-row">
-
           <span class="cn">💵免費報價💵</span>
-
           <span class="en">💵Free Quotation💵</span>
-
       </div>
-
       <div class="banner-bottom-text cn-en-row">
-
           <span class="cn">✅收足金✅K金✅金銀條✅金銀幣✅銀器✅低K首飾✅舊金✅壞金✅帶石金飾</span>
-
           <span class="en">✅Pure Gold ✅K Gold ✅Bullion ✅Coin ✅Silverware✅Low K Jewelry ✅Old Gold ✅Damaged Gold ✅Stone-set Gold</span>
-
       </div>
-
     </div>
-
   </div>
-
-  <!-- 第二部分：實時價格表格 -->
-
   <div class="price-table-container">
-
     <table class="price-table">
-
       <thead>
-
         <tr>
-
           <th class="cn-en-row">
-
             <span class="cn">商品<br>(純度9999)</span>
-
             <span class="en">Product<br>(9999 Purity)</span>
-
           </th>
-
           <th class="cn-en-row">
-
             <span class="cn">回購價<br>(每兩)</span>
-
             <span class="en">Buyback<br>(Per Tael)</span>
-
           </th>
-
           <th class="cn-en-row">
-
             <span class="cn">銷售價<br>(每兩)</span>
-
             <span class="en">Selling Price<br>(Per Tael)</span>
-
           </th>
-
         </tr>
-
       </thead>
-
       <tbody>
-
         <tr>
-
           <td class="col-name cn-en-row">
-
             <span class="cn">黃金AU</span>
-
             <span class="en">Gold AU</span>
-
           </td>
-
           <td><div class="price-val" id="buy-au">--</div></td>
-
           <td><div class="price-val" id="sell-au">--</div></td>
-
         </tr>
-
         <tr>
-
           <td class="col-name cn-en-row">
-
             <span class="cn">白銀AG</span>
-
             <span class="en">Silver AG</span>
-
           </td>
-
           <td><div class="price-val" id="buy-ag">--</div></td>
-
           <td><div class="price-val" id="sell-ag">--</div></td>
-
         </tr>
-
         <tr>
-
           <td class="col-name cn-en-row">
-
             <span class="cn">鉑金PT</span>
-
             <span class="en">Platinum PT</span>
-
           </td>
-
           <td><div class="price-val" id="buy-pt">--</div></td>
-
           <td class="empty-tip cn-en-row">
-
             <span class="cn">暫未開售</span>
-
             <span class="en">Not Available</span>
-
           </td>
-
         </tr>
-
       </tbody>
-
     </table>
-
   </div>
-
-  <!-- 第三部分：電話(左) + 條款(右) 平排，共用note-footer容器，字體和條款一致，電話只保留中文 -->
-
+  <!-- 底部備註區：左手邊獨立單元放電話；右手邊放備註文字，更新時間放在右手邊內容最尾 -->
   <div class="note-footer">
-
     <div class="note-left-phone">
-
-      <div><i class="fab fa-whatsapp"></i>上環查詢電話: 5396 2703</div>
-
-      <div><i class="fab fa-whatsapp"></i>分店查詢電話: 5428 7123</div>
-
+      <div class="hotline-full-line cn-en-row">
+        <span class="cn"><i class="fab fa-whatsapp"></i>上環查詢電話: 5396 2703</span>
+        <span class="en"><i class="fab fa-whatsapp"></i>Sheung Wan Hotline: 5396 2703</span>
+      </div>
+      <div class="hotline-full-line cn-en-row">
+        <span class="cn"><i class="fab fa-whatsapp"></i>分店查詢電話: 5428 7123</span>
+        <span class="en"><i class="fab fa-whatsapp"></i>Branch Hotline: 5428 7123</span>
+      </div>
     </div>
-
     <div class="note-right-text">
-
       <div class="note-normal cn-en-row">
-
         <span class="cn">*最終報價需按照實際純度計算</span>
-
         <span class="en">*Final price based on actual purity</span>
-
       </div>
-
       <div class="note-gold cn-en-row">
-
         <span class="cn">*免火耗 免佣金 免手續費</span>
-
         <span class="en">*No Melting Loss, No Commission, No Service Fee</span>
-
       </div>
-
       <div class="note-timestamp-line cn-en-row">
-
         <span class="cn">更新時間Update Time: <span id="ut">初始化中...</span></span>
-
       </div>
-
     </div>
-
   </div>
-
 </div>
-
 <script>
-
 (function(){
-
     var d = document, ut = d.getElementById('ut'), utEn = d.getElementById('ut-en');
-
     var fmt = function(n){ return n<10?'0'+n:n; };
-
     setInterval(function(){ 
-
         var t = new Date(); 
-
         var timeStr = t.getFullYear() + '年' + fmt(t.getMonth()+1) + '月' + fmt(t.getDate()) + '日 ' + fmt(t.getHours()) + ':' + fmt(t.getMinutes()) + ':' + fmt(t.getSeconds());
-
         var timeEnStr = t.getFullYear() + '-' + fmt(t.getMonth()+1) + '-' + fmt(t.getDate()) + ' ' + fmt(t.getHours()) + ':' + fmt(t.getMinutes()) + ':' + fmt(t.getSeconds());
-
         ut.textContent = timeStr;
-
         // 修復：utEn不存在，移除這行避免報錯
-
         // utEn.textContent = timeEnStr;
-
     }, 1000);
-
     
-
     var M = {
-
         au:{ c:'AUX', h:'sh-au', r:'sr-au' },
-
         ag:{ c:'AGX', h:'sh-ag', r:'sr-ag' },
-
         pt:{ c:'PTX', h:'sh-pt', r:'sr-pt' }
-
     };
-
     var ws, tm;
-
     var rand = function(l){ 
-
         var c = 'abcdefghijklmnopqrstuvwxyz0123456789', r = ''; 
-
         for(var i=0; i<l; i++) r += c.charAt(Math.floor(Math.random()*c.length)); 
-
         return r;
-
     };
-
     
-
     var lastValues = {};
-
     function conn(){
-
         var svr = Math.floor(Math.random()*1000).toString().padStart(3,'0');
-
         ws = new WebSocket('wss://chart-data.bullionvault.com/price_feed/'+svr+'/'+rand(8)+'/websocket');
-
         ws.onopen = function(){};
-
         ws.onmessage = function(e){
-
             var dat = e.data;
-
             if(dat === 'o'){
-
-                ws.send('["CONNECT\naccept-version:1.2,1.1,1.0\nheart-beat:10000,10000\n\n\u0000"]');
-
+                ws.send('["CONNECT\\naccept-version:1.2,1.1,1.0\\nheart-beat:10000,10000\\n\\n\\u0000"]');
             } else if(dat.startsWith('a[')){
-
                 try {
-
                     var arr = JSON.parse(dat.substring(1));
-
                     arr.forEach(proc);
-
                 } catch(err){}
-
             }
-
         };
-
         ws.onclose = function(){ clearInterval(tm); setTimeout(conn, 5000); };
-
     }
-
     function proc(msg){
-
         if(msg.startsWith('CONNECTED')){
-
-            for(var k in M) ws.send('["SUBSCRIBE\nid:'+M[k].h+'\ndestination:/t/'+M[k].c+'/USD/5\n\n\u0000"]');
-
+            for(var k in M) ws.send('["SUBSCRIBE\\nid:'+M[k].h+'\\ndestination:/t/'+M[k].c+'/USD/5\\n\\n\\u0000"]');
             tm = setInterval(function(){}, 10000);
-
         } else if(msg.startsWith('MESSAGE')){
-
             var p = msg.split('\n\n');
-
             if(p.length<2) return;
-
             var head = p[0], body = p[1].replace(/\u0000$/,'');
-
             var subId = '';
-
             var hl = head.split('\n');
-
             for(var i=0;i<hl.length;i++){ if(hl[i].indexOf('subscription:')===0) subId = hl[i].split(':')[1]; }
-
             
-
             var val = null;
-
             try {
-
                 var j = JSON.parse(body);
-
                 if(j.prices && Array.isArray(j.prices) && j.prices.length>0) val = j.prices[0].latestPrice;
-
                 else if(j.price) val = j.price;
-
                 else if(j.latestPrice) val = j.latestPrice;
-
             } catch(e){ return; }
-
             if(val !== null){
-
                 for(var k in M){
-
                     if(subId === M[k].h){
-
                         upd(k, val);
-
-                        ws.send('["UNSUBSCRIBE\nid:'+M[k].h+'\n\n\u0000"]');
-
-                        ws.send('["SUBSCRIBE\nid:'+M[k].r+'\ndestination:/t/'+M[k].c+'/USD\n\n\u0000"]');
-
+                        ws.send('["UNSUBSCRIBE\\nid:'+M[k].h+'\\n\\n\\u0000"]');
+                        ws.send('["SUBSCRIBE\\nid:'+M[k].r+'\\ndestination:/t/'+M[k].c+'/USD\\n\\n\\u0000"]');
                     } else if(subId === M[k].r){
-
                         upd(k, val);
-
                     }
-
                 }
-
             }
-
         }
-
     }
-
     var fHkd = function(n){ return n.toLocaleString('zh-HK',{minimumFractionDigits:0,maximumFractionDigits:0}); };
-
     function upd(key, raw){
-
         var cp = parseFloat(raw);
-
         if(isNaN(cp)) return;
-
         
-
         var coefficient;
-
         switch(key) {
-
             case 'au': coefficient = 7.55; break;
-
             case 'ag': coefficient = 7; break;
-
             case 'pt': coefficient = 7.22; break;
-
             default: coefficient = 7.52;
-
         }
-
         
-
         var mp = cp / 32.15;
-
         var poz = mp * coefficient;
-
         var pg = poz / 31.1;
-
         var buyPrice = pg * 37.429;
-
         var sellPrice = 0;
-
         if(key === 'au') sellPrice = buyPrice + 2245;
-
         if(key === 'ag') sellPrice = buyPrice + 82;
-
         
-
         var buyEl = d.getElementById('buy-' + key);
-
         buyEl.textContent = fHkd(buyPrice);
-
         buyEl.style.color = '#ffd700';
-
         lastValues['buy-' + key] = buyPrice;
-
         if(key === 'au' || key === 'ag'){
-
             var sellEl = d.getElementById('sell-' + key);
-
             sellEl.textContent = fHkd(sellPrice);
-
             sellEl.style.color = '#ffd700';
-
             lastValues['sell-' + key] = sellPrice;
-
         }
-
     }
-
     conn();
-
 })();
-
 </script>
-
 </body>
-
 </html>
