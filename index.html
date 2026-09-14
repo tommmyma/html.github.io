@@ -218,29 +218,30 @@
     color: #ffffff;
     line-height: 1.8;
   }
-  /* 底部備註容器 */
-  .note-footer {
-    width: 100%;
-    background: #000000;
-    border: 4px solid #333;
-    border-radius: 15px;
-    padding: clamp(12px,2vw,20px) clamp(15px,2vw,25px);
-    margin-top: 20px;
+  /* 底部雙欄區塊，和banner-blue-wrap同樣結構 */
+  .footer-wrap{
     display:flex;
-    flex-wrap:wrap;
-    gap:20px;
-    justify-content:space-between;
-    align-items:flex-start;
-    line-height: 1.6;
+    gap: clamp(20px,3vw,40px);
+    flex-wrap: wrap;
+    width:100%;
+    margin: clamp(20px,4vw,62.5px) 0 20px;
   }
-  /* 左側電話獨立單元格，沿用hotline字體大小 */
-  .note-phone-block{
-    flex:0 0 420px;
-  }
-  /* 右側條款獨立單元格，字體跟電話一致 */
-  .note-term-block{
+  .footer-phone-block {
     flex:1;
     min-width:300px;
+    background: #0a1428;
+    border-radius: 15px;
+    padding: clamp(15px,3vw,35px) clamp(10px,2vw,20px);
+    border: 3px solid #193366;
+  }
+  .footer-term-block {
+    flex:1;
+    min-width:300px;
+    background: #0a1428;
+    border-radius: 15px;
+    padding: clamp(15px,3vw,35px) clamp(10px,2vw,20px);
+    border: 3px solid #193366;
+    text-align:right;
   }
   .note-term-line{
     font-size: clamp(0.6rem,1.5vw,100%);
@@ -288,8 +289,11 @@
     .banner-blue-wrap{
       flex-direction:column;
     }
-    .note-footer{
+    .footer-wrap{
       flex-direction:column;
+    }
+    .footer-term-block{
+      text-align:left;
     }
   }
 </style>
@@ -358,10 +362,10 @@
       </tbody>
     </table>
   </div>
-  <!-- 底部備註區：左獨立電話單元格，右邊條款單元格並排 -->
-  <div class="note-footer">
-    <!-- 左側獨立單元格：2組電話中英文 -->
-    <div class="note-phone-block">
+
+  <!-- 底部新雙區塊，樣式同免費報價藍色框，左電話、右條款置右 -->
+  <div class="footer-wrap">
+    <div class="footer-phone-block">
       <div class="hotline-full-line cn-en-row">
         <span class="cn"><i class="fab fa-whatsapp"></i>上環查詢電話: 5396 2703</span>
         <span class="en"><i class="fab fa-whatsapp"></i>Sheung Wan Hotline: 5396 2703</span>
@@ -371,8 +375,7 @@
         <span class="en"><i class="fab fa-whatsapp"></i>Branch Hotline: 5428 7123</span>
       </div>
     </div>
-    <!-- 右側獨立單元格：三條條款，並排顯示 -->
-    <div class="note-term-block">
+    <div class="footer-term-block">
       <div class="note-term-line note-normal cn-en-row">
         <span class="cn">*最終報價需按照實際純度計算</span>
         <span class="en">*Final price based on actual purity</span>
@@ -386,6 +389,7 @@
       </div>
     </div>
   </div>
+
 </div>
 <script>
 (function(){
